@@ -19,6 +19,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1200);
 
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedDarkMode = localStorage.getItem('darkMode');
+
+    if (savedDarkMode === 'enabled' || (!savedDarkMode && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        if (darkModeToggle) {
+            darkModeToggle.querySelector('.dark-mode-icon').textContent = '☀️';
+        }
+    }
+
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('.dark-mode-icon');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.textContent = '☀️';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                icon.textContent = '🌙';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    }
+
+    const progressBar = document.querySelector('.progress-bar');
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+
+        if (progressBar) {
+            progressBar.style.width = scrollPercent + '%';
+        }
+    });
+
     const heartBackground = document.querySelector('.memories-section') || document.body;
     const heartColors = ['#c0a2a2', '#a68a8a', '#d4b8b8', '#bf9b9b', '#e1c8c8', '#d6c4d6'];
 
