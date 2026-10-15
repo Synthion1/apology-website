@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0d8 50%, #a1c4fd 100%);
+    color: #4a4a4a;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.heart-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    background: #ff6b8b;
+    opacity: 0.15;
+    animation: float 6s infinite ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    background: #ff6b8b;
+    border-radius: 100% 100% 0 0;
+}
+
+.heart::before {
+    width: 35px;
+    height: 35px;
+    top: -17px;
+    left: 0;
+    transform: rotate(-45deg);
+    animation: heartbeat 6s infinite ease-in-out;
+}
+
+.heart::after {
+    width: 35px;
+    height: 35px;
+    top: 0;
+    left: -17px;
+    transform: rotate(45deg);
+    animation: heartbeat 6s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.15;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.25;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+    25% {
+        transform: rotate(-45deg) scale(1.1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1);
+    }
+    75% {
+        transform: rotate(-45deg) scale(1.05);
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px 0;
+    border-bottom: 3px solid #ff6b8b;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #ff6b8b;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    animation: fadeInDown 1.5s ease;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #ff8fa3;
+    font-style: italic;
+    animation: fadeIn 1.5s ease 0.3s both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.letter-section {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(255, 107, 139, 0.15);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.8s ease 0.2s both;
+}
+
+.letter-intro {
+    font-size: 2rem;
+    color: #ff6b8b;
+    text-align: right;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.letter-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #666;
+    text-align: justify;
+}
+
+.highlight {
+    background: linear-gradient(120deg, #ff9a9e, #fad0d8);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #ff6b8b;
+}
+
+.letter-end {
+    font-size: 1.8rem;
+    text-align: right;
+    color: #ff6b8b;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.apologies-section {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(255, 107, 139, 0.15);
+    animation: fadeIn 0.8s ease 0.3s both;
+}
+
+.apologies-section h2 {
+    font-size: 2.2rem;
+    color: #ff6b8b;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.apology-list {
+    list-style: none;
+}
+
+.apology-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    background: rgba(255, 107, 139, 0.1);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.apology-item:hover {
+    transform: translateX(10px);
+    background: rgba(255, 107, 139, 0.2);
+}
+
+.apology-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff6b8b, #ff8fa3);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.apology-text {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.memories-section {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(255, 107, 139, 0.15);
+    animation: fadeIn 0.8s ease 0.4s both;
+}
+
+.memories-section h2 {
+    font-size: 2.2rem;
+    color: #ff6b8b;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.memory-card {
+    background: rgba(255, 107, 139, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 107, 139, 0.2);
+}
+
+.memory-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.memory-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.promise-section {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(255, 107, 139, 0.15);
+    animation: fadeIn 0.8s ease 0.5s both;
+}
+
+.promise-section h2 {
+    font-size: 2.2rem;
+    color: #ff6b8b;
+    margin-bottom: 25px;
+}
+
+.promise {
+    font-size: 1.4rem;
+    color: #666;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.gift-button {
+    background: linear-gradient(135deg, #ff9a9e, #a1c4fd);
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.3rem;
+    color: #ff6b8b;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 139, 0.3);
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.gift-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 107, 139, 0.4);
+    background: linear-gradient(135deg, #ffa1b3, #c7d4f0);
+}
+
+.gift-button:active {
+    transform: translateY(1px);
+}
+
+.gift-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #ff6b8b;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fff5f7, #fff0f5);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    max-width: 500px;
+    margin: 20px;
+    position: relative;
+    animation: modalFade 0.5s ease;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ff6b8b;
+}
+
+.modal-content h3 {
+    font-size: 2rem;
+    color: #ff6b8b;
+    margin-bottom: 20px;
+}
+
+.gift-message {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.hearts {
+    font-size: 2rem;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .letter-section,
+    .apologies-section,
+    .memories-section,
+    .promise-section {
+        padding: 25px 20px;
+    }
+
+    .letter-content p {
+        font-size: 1.1rem;
+    }
+
+    .memories-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gift-button {
+        padding: 18px 40px;
+        font-size: 1.1rem;
+    }
+}

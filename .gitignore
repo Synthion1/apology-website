@@ -1,0 +1,4 @@
+handson_fixed/
+node_modules/
+*.pyc
+.venv/
