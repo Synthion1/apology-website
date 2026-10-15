@@ -915,7 +915,14 @@ footer {
 .dark-mode .promise,
 .dark-mode .gift-message,
 .dark-mode .photo-caption,
-.dark-mode .photo-note {
+.dark-mode .photo-note,
+.dark-mode .timeline-content p,
+.dark-mode .memory-card p,
+.dark-mode .memory-card h3 {
+    color: #bbb;
+}
+
+.dark-mode .close {
     color: #bbb;
 }
 
