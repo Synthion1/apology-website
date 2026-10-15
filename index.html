@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+    <body>
+        <div id="loader" class="loader">
+            <div class="loader-heart">💗</div>
+            <p class="loader-text">Loading my heart...</p>
+        </div>
+
+        <div id="content" class="content-hidden">
     <div class="heart-background">
         <div class="heart"></div>
         <div class="heart"></div>
@@ -65,6 +71,72 @@
                 </ul>
             </section>
 
+            <section class="photo-collage-section">
+                <h2>Our Memories</h2>
+                <p class="collage-intro">Every photo with you is my favorite. Here are some of our moments together.</p>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/400x400/?couple,love" alt="Our memory" class="photo-placeholder">
+                        <p class="photo-caption">Our first date</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/400x400/?kiss" alt="Our memory" class="photo-placeholder">
+                        <p class="photo-caption">That magical kiss</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/400x400/?beach,sunset" alt="Our memory" class="photo-placeholder">
+                        <p class="photo-caption">Sunset walks</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/400x400/?laugh,fun" alt="Our memory" class="photo-placeholder">
+                        <p class="photo-caption">Laughing till it hurts</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/400x400/?adventure,outdoors" alt="Our memory" class="photo-placeholder">
+                        <p class="photo-caption">Adventure together</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/400x400/?quiet,moment" alt="Our memory" class="photo-placeholder">
+                        <p class="photo-caption">Quiet moments</p>
+                    </div>
+                </div>
+                <p class="photo-note">Replace these placeholder images with your real photos.</p>
+            </section>
+
+            <section class="timeline-section">
+                <h2>Our Story</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>First Meeting</h3>
+                            <p>The day our eyes met and everything changed.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>First Date</h3>
+                            <p>The moment I knew I never wanted to let you go.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>First "I Love You"</h3>
+                            <p>When we both knew this was real, this was forever.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Today</h3>
+                            <p>A website made with my whole heart, hoping for another chance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="memories-section">
                 <h2>Reasons I Love You</h2>
                 <div class="memories-grid">
@@ -109,7 +181,7 @@
         </footer>
     </div>
 
-    <div id="giftModal" class="modal">
+     <div id="giftModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h3>For You, My Love</h3>
@@ -117,9 +189,19 @@
             <div class="hearts">
                 <span>💖 💕 💞 💝 💘 💗</span>
             </div>
+            <div class="forgiveness-buttons">
+                <button id="yesForgive" class="forgive-btn">Yes, I forgive you 💖</button>
+                <button id="noForgive" class="forgive-btn no-btn">Not yet... 💔</button>
+            </div>
+        <p id="responseMessage" class="response-message"></p>
         </div>
     </div>
 
+    <button id="backToTop" class="back-to-top">
+        <span>↑</span>
+    </button>
+
     <script src="script.js"></script>
+    </div>
 </body>
 </html>

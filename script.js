@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const loader = document.getElementById('loader');
+    const content = document.getElementById('content');
+
+    setTimeout(function() {
+        if (loader) {
+            loader.style.opacity = '0';
+            loader.style.transition = 'opacity 0.5s ease';
+            setTimeout(function() {
+                if (loader) {
+                    loader.style.display = 'none';
+                }
+                if (content) {
+                    content.classList.remove('content-hidden');
+                    content.classList.add('content-visible');
+                }
+            }, 500);
+        }
+    }, 1500);
+
     const heartBackground = document.querySelector('.heart-background');
     const heartColors = ['#ff6b8b', '#ff8fa3', '#a1c4fd', '#ffb3ba', '#baffc9', '#bae1ff'];
 
@@ -60,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         giftButton.addEventListener('click', function() {
             giftModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            createConfettiHearts();
         });
     }
 
@@ -85,6 +105,43 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
     });
+
+    const yesBtn = document.getElementById('yesForgive');
+    const noBtn = document.getElementById('noForgive');
+    const responseMessage = document.getElementById('responseMessage');
+
+    const yesMessages = [
+        "I'm so happy! I promise to make every day worth it from now on. Thank you for forgiving me, my love. I love you forever.",
+        "Your forgiveness means everything to me. I'll spend every day proving I'm worthy of your love. Forever yours.",
+        "You're amazing. I promise to never let something like this happen again. I love you more than anything."
+    ];
+
+    const noMessages = [
+        "I understand. I'll keep trying and proving myself until you're ready. I'll always love you.",
+        "I know I still have work to do. I'll wait as long as it takes, because you mean everything to me.",
+        "That's okay. I'll keep showing you every day how much you mean to me, until you believe it."
+    ];
+
+    if (yesBtn) {
+        yesBtn.addEventListener('click', function() {
+            const msg = yesMessages[Math.floor(Math.random() * yesMessages.length)];
+            responseMessage.textContent = msg;
+            responseMessage.className = 'response-message response-yes';
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+            createConfettiHearts();
+        });
+    }
+
+    if (noBtn) {
+        noBtn.addEventListener('click', function() {
+            const msg = noMessages[Math.floor(Math.random() * noMessages.length)];
+            responseMessage.textContent = msg;
+            responseMessage.className = 'response-message response-no';
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+        });
+    }
 
     const memoryCards = document.querySelectorAll('.memory-card');
     memoryCards.forEach((card, index) => {
@@ -152,6 +209,46 @@ document.addEventListener('DOMContentLoaded', function() {
         item.style.opacity = '0';
         item.style.transform = 'translateX(-20px)';
         listObserver.observe(item);
+    });
+
+    function createConfettiHearts() {
+        const heartEmojis = ['💖', '💕', '💞', '💝', '💘', '💗', '💓', '💌', '🌹', '🌸'];
+        const totalHearts = 100;
+
+        for (let i = 0; i < totalHearts; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('confetti-heart');
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            heart.style.animationDelay = (Math.random() * 2) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 4000);
+        });
+    }
+});
+
+window.addEventListener('scroll', function() {
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    }
+});
+
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 });
 
